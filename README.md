@@ -2,16 +2,16 @@
 
 **Universidad de Santander — UDES**  
 Unidad 1 | Post-Contenido 2  
-Curso: Fundamentos de Patrones de Diseño y Buenas Prácticas
+Curso: Fundamentos de Patrones de Diseño
 
 ---
 
 ## Diagrama UML (textual)
 
 ```
-┌─────────────────────────────────────────────────────────────────────────┐
+┌──────────────────────────────────────────────────────────────────────────┐
 │                         PATRÓN OBSERVER                                  │
-│                                                                           │
+│                                                                          │
 │  «interface»          «interface»                                        │
 │  OrderObserver ◄──── OrderSubject                                        │
 │  + update()           + subscribe()                                      │
@@ -19,43 +19,43 @@ Curso: Fundamentos de Patrones de Diseño y Buenas Prácticas
 │       │               + notifyObservers()                                │
 │  ┌────┴────────────┐        ▲                                            │
 │  │EmailNotifier    │        │                                            │
-│  │SMSNotifier      │   OrderService (implements OrderSubject)           │
+│  │SMSNotifier      │   OrderService (implements OrderSubject)            │
 │  │LogNotifier      │                                                     │
 │  └─────────────────┘                                                     │
-└─────────────────────────────────────────────────────────────────────────┘
+└──────────────────────────────────────────────────────────────────────────┘
 
-┌─────────────────────────────────────────────────────────────────────────┐
-│                       PATRÓN FACTORY METHOD                              │
+┌───────────────────────────────────────────────────────────────────────────┐
+│                       PATRÓN FACTORY METHOD                               │
 │                                                                           │
 │  «abstract»                                                               │
 │  Product                                                                  │
 │  + calculateShipping(): double                                            │
 │  + getDescription(): String                                               │
 │       ▲                                                                   │
-│  ┌────┴───────────────────┐                                              │
-│  │ Electronics            │  Clothing        Food                        │
-│  │ - warrantyMonths: int  │  - size: String  - expirationDays: int      │
-│  └────────────────────────┘                                              │
+│  ┌────┴───────────────────┐                                               │
+│  │ Electronics            │  Clothing        Food                         │
+│  │ - warrantyMonths: int  │  - size: String  - expirationDays: int        │
+│  └────────────────────────┘                                               │
 │                                                                           │
 │  ProductFactory                                                           │
-│  + createProduct(type, name, price): Product   ◄── cliente               │
-└─────────────────────────────────────────────────────────────────────────┘
+│  + createProduct(type, name, price): Product   ◄── cliente                │
+└───────────────────────────────────────────────────────────────────────────┘
 
-┌─────────────────────────────────────────────────────────────────────────┐
-│                         PATRÓN STRATEGY                                  │
+┌───────────────────────────────────────────────────────────────────────────┐
+│                         PATRÓN STRATEGY                                   │
 │                                                                           │
 │  «interface»                                                              │
 │  PricingStrategy                                                          │
-│  + calculateFinalPrice(price): double                                    │
+│  + calculateFinalPrice(price): double                                     │
 │  + getDescription(): String                                               │
 │       ▲                                                                   │
-│  ┌────┴──────────────────────────────────┐                               │
-│  │ RegularPricing  │ MemberPricing        │                              │
-│  │ BlackFridayPricing │ BulkPricing       │                              │
-│  └───────────────────────────────────────┘                               │
+│  ┌────┴──────────────────────────────────┐                                │
+│  │ RegularPricing  │ MemberPricing        │                               │
+│  │ BlackFridayPricing │ BulkPricing       │                               │
+│  └───────────────────────────────────────┘                                │
 │                                                                           │
-│  OrderService ──uses──► PricingStrategy                                  │
-└─────────────────────────────────────────────────────────────────────────┘
+│  OrderService ──uses──► PricingStrategy                                   │
+└───────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
